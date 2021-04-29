@@ -21,4 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'sideBar']);
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/attendenceDetails', [AttendenceController::class, 'attendenceDetails'])->name('attendenceDetails');
+Route::get('/attendenceTaker', [AttendenceController::class, 'attendenceTaker'])->name('attendenceTaker');
+Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');

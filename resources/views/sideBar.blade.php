@@ -5,6 +5,13 @@
     <title>
         Side Bar
     </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <style>
         * {
             box-sizing: border-box;
@@ -46,8 +53,15 @@
         .main {
             height: 100%;
             margin-top: 60px;
+            margin-right: 150px;
+            margin-left: 60px;
             padding: 10px 50px;
-            margin-left: 220px;
+            transform: translateX(0%);
+            transition: transform 250ms ease-in-out;
+        }
+
+        #openSidebarMenu:checked~.main {
+            transform: translateX(15%);
         }
 
         #sidebarMenu {
@@ -65,7 +79,7 @@
         #openSidebarMenu:checked~#sidebarMenu {
             transform: translateX(0px);
         }
-        
+
         .menu {
             list-style: none;
             padding: 0;
@@ -94,22 +108,28 @@
             left: 15px;
             cursor: pointer;
         }
-        .spinner{
+
+        .spinner {
             height: 3px;
             background: #fff;
             transition: all 0.3s;
         }
-        .spinner.middle,.spinner.bottom{
+
+        .spinner.middle,
+        .spinner.bottom {
             margin-top: 3px;
         }
-        #openSidebarMenu:checked~.sidebariconToggle > .spinner.middle{
+
+        #openSidebarMenu:checked~.sidebariconToggle>.spinner.middle {
             opacity: 0;
         }
-        #openSidebarMenu:checked~.sidebariconToggle > .spinner.top{
+
+        #openSidebarMenu:checked~.sidebariconToggle>.spinner.top {
             transform: rotate(135deg);
             margin-top: 8px;
         }
-        #openSidebarMenu:checked~.sidebariconToggle > .spinner.bottom{
+
+        #openSidebarMenu:checked~.sidebariconToggle>.spinner.bottom {
             transform: rotate(-135deg);
             margin-top: -9px;
         }
@@ -118,7 +138,7 @@
 
 <body>
     <div class="header">
-    <h1>Employee Attendence System</h1>
+        <h1>Employee Attendence System</h1>
     </div>
     <input type="checkbox" id="openSidebarMenu">
     <label for="openSidebarMenu" class="sidebariconToggle">
@@ -128,27 +148,20 @@
     </label>
     <div id="sidebarMenu">
         <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Employee List</a></li>
-            <li><a href="#">Attendence</a></li>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="{{route('home')}}">Home</a></li>
+            <li><a href="{{route('attendenceDetails')}}">Employee List</a></li>
+            <li><a href="{{route('attendenceTaker')}}">Attendence</a></li>
+            <li><a href="{{route('dashboard')}}">Dashboard</a></li>
         </ul>
     </div>
-    <div class="main">
-        <h1>this is a pure css file</h1>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-    </div>
+    @yield('content')
 </body>
 
 </html>
+<script>
+    $(function() {
+        $(".dropdown-menu").on('click', 'a', function() {
+            $(this).parents('.dropdown').find('button').text($(this).text());
+        });
+    });
+</script>

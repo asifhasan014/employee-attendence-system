@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     //
-    public function sideBar(){
-        return view('sideBar');
+    public function dashboard(){
+        echo "this is dashboard";
     }
 }
