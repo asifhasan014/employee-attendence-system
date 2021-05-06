@@ -20,6 +20,7 @@ class Employees extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('company_code');
             $table->integer('company_id');
             $table->rememberToken();
             $table->timestamps();
