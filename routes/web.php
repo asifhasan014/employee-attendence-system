@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\AttendenceController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/mainHome', [MainController::class, 'mainHome'])->name('mainHome');
 Route::get('/attendenceDetails', [AttendenceController::class, 'attendenceDetails'])->name('attendenceDetails');
 Route::get('/attendenceTaker', [AttendenceController::class, 'attendenceTaker'])->name('attendenceTaker');
 Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
 Route::post('/createEmployee', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
+
+Auth::routes(['register' => false]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
