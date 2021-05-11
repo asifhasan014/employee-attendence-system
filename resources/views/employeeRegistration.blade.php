@@ -71,6 +71,7 @@
                  success: function(response) {
                      console.log("success field");
                      console.log(response);
+                     $('#exampleModal').modal('hide');
                      // You will get response from your PHP page (what you echo or print)
                  },
                  error: function(error) {
