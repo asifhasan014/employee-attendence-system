@@ -148,7 +148,7 @@
     </label>
     <div id="sidebarMenu">
         <ul class="menu">
-            <li><a href="{{route('home')}}">Home</a></li>
+            <li><a href="{{route('mainHome')}}">Home</a></li>
             <li><a href="{{route('attendenceDetails')}}">Employee List</a></li>
             <li><a href="{{route('attendenceTaker')}}">Attendence</a></li>
             <li><a href="{{route('dashboard')}}">Dashboard</a></li>
