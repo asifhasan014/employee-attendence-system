@@ -1,4 +1,7 @@
+@extends('layouts.sclaton')
+@section('sideBar')
 @extends('sideBar')
+@endsection
 @section('content')
 <div class="main">
     <h2>Give Your Attendence</h2><br>
@@ -64,3 +67,10 @@
     </table>
 </div>
 @endsection
+<script>
+    $(function() {
+        $(".dropdown-menu").on('click', 'a', function() {
+            $(this).parents('.dropdown').find('button').text($(this).text());
+        });
+    });
+</script>

@@ -4,7 +4,6 @@
 <link href="{{ asset('css/loginStyle.css') }}" rel="stylesheet">
 @endsection
 @section('content')
-
     <div id="login">
         <h3 class="text-center text-white pt-5">Employee Attendence System</h3>
         <div class="container">

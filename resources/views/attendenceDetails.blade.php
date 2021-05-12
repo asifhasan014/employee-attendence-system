@@ -1,6 +1,9 @@
+@extends('layouts.sclaton')
+@section('sideBar')
 @extends('sideBar')
+@endsection
 @section('content')
-<div class="main">
+<div>
     <h2>Todays Status</h2><br>
     <table class="table table-hover">
         <thead>
