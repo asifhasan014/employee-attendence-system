@@ -11,7 +11,7 @@ class EmployeeController extends Controller
     //
     public function dashboard()
     {
-        return view('layouts.master');
+        return view('dashboard');
     }
     public function createEmployee(Request $request)
     {

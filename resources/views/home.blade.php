@@ -1,8 +1,5 @@
-@extends('layouts.sclaton')
-@section('sideBar')
-@extends('sideBar')
-@endsection
-@section('content')
+@extends('layouts.master')
+@section('elements')
 <div>
     <h1>this is a pure css file</h1>
     <p>

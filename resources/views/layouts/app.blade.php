@@ -34,14 +34,9 @@
 
 <body>
     <div id="app">
-        <div>
-            @yield('sideBar')
-        </div>
-        <div>
-            <main>
-                @yield('content')
-            </main>
-        </div>
+        <main>
+            @yield('content')
+        </main>
     </div>
 </body>
 

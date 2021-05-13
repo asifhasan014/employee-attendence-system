@@ -1,9 +1,6 @@
-@extends('layouts.sclaton')
-@section('sideBar')
-@extends('sideBar')
-@endsection
-@section('content')
-<div class="main">
+@extends('layouts.master')
+@section('elements')
+<div>
     <h2>Give Your Attendence</h2><br>
     <table class="table table-hover">
         <thead>
