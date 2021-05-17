@@ -17,16 +17,17 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
-
-Route::get('/mainHome', [MainController::class, 'mainHome'])->name('mainHome');
-Route::get('/attendenceDetails', [AttendenceController::class, 'attendenceDetails'])->name('attendenceDetails');
-Route::get('/attendenceTaker', [AttendenceController::class, 'attendenceTaker'])->name('attendenceTaker');
-Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
-Route::post('/createEmployee', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
-
 Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware'=>"auth"], function () {
+    Route::get('/mainHome', [MainController::class, 'mainHome'])->name('mainHome');
+    Route::get('/attendenceDetails', [AttendenceController::class, 'attendenceDetails'])->name('attendenceDetails');
+    Route::get('/attendenceTaker', [AttendenceController::class, 'attendenceTaker'])->name('attendenceTaker');
+    Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
+    Route::post('/createEmployee', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
+});
+
