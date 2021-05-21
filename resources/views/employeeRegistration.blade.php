@@ -48,7 +48,7 @@
      </div>
  </div>
 
- <script>
+ <!-- <script>
      $(function() {
 
          $.ajaxSetup({
@@ -81,4 +81,4 @@
              });
          })
      })
- </script>
+ </script> -->

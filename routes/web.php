@@ -25,7 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['middleware'=>"auth"], function () {
     Route::get('/mainHome', [MainController::class, 'mainHome'])->name('mainHome');
-    Route::get('/attendenceDetails', [AttendenceController::class, 'attendenceDetails'])->name('attendenceDetails');
+    Route::get('/attendenceDetails', [AttendenceController::class, 'index'])->name('attendenceDetails');
+    Route::get('/attendenceDetailsData', [AttendenceController::class, 'getTodayAttendenceDetails'])->name('attendenceDetailsData');
     Route::get('/attendenceTaker', [AttendenceController::class, 'attendenceTaker'])->name('attendenceTaker');
     Route::get('/dashboard', [EmployeeController::class, 'dashboard'])->name('dashboard');
     Route::post('/createEmployee', [EmployeeController::class, 'createEmployee'])->name('createEmployee');

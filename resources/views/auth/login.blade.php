@@ -62,4 +62,38 @@
         </div>
     </div>
 
+    <!-- <script>
+     $(function() {
+
+         $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             }
+         });
+
+         $('#employeeResForm').submit(function(e) {
+             e.preventDefault();
+             console.log('submitted');
+             var data = $(this).serialize();
+             var url = "{{route('createEmployee')}}"
+             console.log(data);
+
+             $.ajax({
+                 url: url,
+                 method: 'POST',
+                 data: data,
+                 success: function(response) {
+                     console.log("success field");
+                     console.log(response);
+                     $('#exampleModal').modal('hide');
+                     // You will get response from your PHP page (what you echo or print)
+                 },
+                 error: function(error) {
+                     console.log("error field");
+                     console.log(error);
+                 }
+             });
+         })
+     })
+ </script> -->
 @endsection
